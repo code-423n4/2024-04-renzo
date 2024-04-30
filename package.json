@@ -1,0 +1,56 @@
+{
+  "name": "restakex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "lint:check:solidity": "npx prettier --check --plugin=prettier-plugin-solidity '{test,contracts,scripts}/**/*.sol'",
+    "lint:check:ts": "npx prettier --check *.ts {scripts,test,deploy}/**/*.ts",
+    "lint:fix:solidity": "npx prettier --write --plugin=prettier-plugin-solidity '{test,contracts,scripts}/**/*.sol'",
+    "lint:fix:ts": "npx prettier --write *.ts {scripts,test,deploy}/**/*.ts",
+    "lint:check": "yarn lint:check:solidity && yarn lint:check:ts",
+    "lint:fix": "yarn lint:fix:solidity && yarn lint:fix:ts",
+    "test": "yarn test:hardhat && yarn test:forge",
+    "test:hardhat": "npx hardhat test",
+    "test:forge": "forge test -vvv --via-ir",
+    "test:forge:e2e": "forge test --match-contract E2E -vvv --via-ir",
+    "test:forge:unit": "forge test --match-contract Unit -vvv --via-ir",
+    "test:fuzz": "FOUNDRY_FUZZ_RUNS=5000 yarn test:forge:unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pooleja/RestakeX.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pooleja/RestakeX/issues"
+  },
+  "homepage": "https://github.com/pooleja/RestakeX#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "@nomicfoundation/hardhat-foundry": "^1.1.1",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^1.1.1",
+    "@openzeppelin/hardhat-upgrades": "^2.2.1",
+    "@types/readline-sync": "^1.4.8",
+    "ethers": "^6.7.1",
+    "hardhat": "^2.17.1",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-deploy": "^0.11.42",
+    "prettier": "^3.2.5",
+    "prettier-plugin-solidity": "^1.3.1"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.7.1",
+    "@chainlink/contracts-ccip": "^1.2.1",
+    "@connext/interfaces": "^2.0.5",
+    "@connext/sdk": "^2.1.2",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "forge-std": "^1.1.2",
+    "readline-sync": "^1.4.10"
+  }
+}

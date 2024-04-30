@@ -1,0 +1,14 @@
+arrowParens: 'avoid'
+bracketSpacing: true
+semi: true
+singleQuote: true
+tabWidth: 4
+useTabs: false
+printWidth: 100
+trailingComma: 'all'
+overrides:
+  - files: "*.sol"
+    options:
+      compiler: "0.8.19"
+      singleQuote: false
+      explicitTypes: "always"
