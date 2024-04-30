@@ -196,8 +196,6 @@ Note that the protocol must have at least the collateral you are requesting to b
 
 ### Files in scope
 
-[ ⭐️ SPONSORS: please fill in the purpose part ]
-
 | File   | Logic Contracts | Interfaces | SLOC  | Purpose | Libraries used |
 | ------ | --------------- | ---------- | ----- | -----   | ------------ |
 | /contracts/Bridge/Connext/integration/LockboxAdapterBlast.sol | 1| 2 | 66 | |@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
@@ -336,9 +334,6 @@ Integrity of TVL calculations (ezETH Pricing) - a user should not be able to man
 
 
 ## All trusted roles in the protocol
-
-[ ⭐️ SPONSORS: please fill in the description part ]
-
 
 |                Role                | Description |
 |:----------------------------------:|:-----------:|
