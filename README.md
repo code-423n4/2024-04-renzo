@@ -26,13 +26,100 @@ Known Risks
 
 # Overview
 
-The Renzo Protocol is a layer over top of EigenLayer (EL) that allows a community to pool their staked tokens together and earn rewards. The community can determine which EL operators to delegate to and what percentage to each.
+Renzo is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.
 
-Additionally the protocol can determine which ERC20 collateral tokens that can be deposited to secure Actively Validated Services (AVS) on EL.
+The protocol abstracts all complexity from the end-user and enables easy collaboration between users and EigenLayer node operators.
 
-Ownership of the protocol is determined by the amount of ezETH you hold. ezETH is minted when you deposit collateral into the protocol and burned when you withdraw.
+## Contracts
 
-When AVSs pay out rewards to restakers, the value will accrue in the protocol.
+```jsx
+contracts
+├── Bridge
+│   ├── Connext - "Connext Interface Contract and Libraries used in the protocol"
+│   ├── L1
+│   │   ├── IxRenzoBridge.sol - "Interface of xRenzoBridge used by caller contract"
+│   │   ├── xRenzoBridge.sol - "L1 Bridge Contract which sends price feed to supported L2s and receiving ETH from different L2s"
+│   │   └── xRenzoBridgeStorage.sol - "Storage contract for xRenzoBridge"
+│   ├── L2
+│   │   ├── Oracle
+│   │   │   ├── IRenzoOracleL2.sol - "Interface of RenzoOracle on L2"
+│   │   │   ├── RenzoOracleL2.sol - "Wrapper Oracle contract to fetch ezETH price on L2 from configured price feeds"
+│   │   │   └── RenzoOracleL2Storage.sol - "Storage contract for RenzoOracleL2"
+│   │   ├── PriceFeed
+│   │   │   ├── CCIPReceiver.sol - "CCIP Receiver contract on L2 to receive price feed from L1"
+│   │   │   └── ConnextReceiver.sol - "Connext Receiver contract on L2 to receive price feed from L1"
+│   │   ├── IxRenzoDeposit.sol - "Interface of xRenzoDeposit user by caller contract"
+│   │   ├── xRenzoDeposit.sol - "User facing deposit contract on supported L2s"
+│   │   └── xRenzoDepositStorage.sol - "Storage contract for xRenzoDeposit"
+│   └── xERC20
+│       ├── contracts
+│       │   ├── XERC20.sol - "XERC20 token contract"
+│       │   ├── XERC20Factory.sol - "XERC20Factory contract responsible to deploy XERC20 and XERC20Lockbox"
+│       │   ├── XERC20Lockbox.sol - "XERC20 Lockbox contract"
+│       │   └── optimism
+│       │       ├── OptimismMintableXERC20.sol - "extended version of XERC20 supported by native optimistic bridge"
+│       │       └── OptimismMintableXERC20Factory.sol - "Storage contract for OptimismMintableXERC20"
+│       └── interfaces
+│           ├── IOptimismMintableERC20.sol - "Interface of OptimismMintableXERC20"
+│           ├── IXERC20.sol - "Interface of XERC20"
+│           ├── IXERC20Factory.sol - "Interface of IXERC20Factory"
+│           └── IXERC20Lockbox.sol - "Interface of IXERC20Lockbox"
+├── Delegation
+│   ├── IOperatorDelegator.sol - "Interface of OperatorDelegator"
+│   ├── OperatorDelegator.sol - "Oprator delegator contract responsible for interacting with EigenLayer"
+│   └── OperatorDelegatorStorage.sol - "Storage contract for OperatorDelegator"
+├── Deposits
+│   ├── DepositQueue.sol - "Deposit Queue contract responsible to deposit native ETH to Beacon chain and fill the withdraw buffer"
+│   ├── DepositQueueStorage.sol - "Storage contract for DepositQueue"
+│   └── IDepositQueue.sol - "Interface of DepositQueue"
+├── EigenLayer - "EigenLayer Interfaces and Libraries used"
+├── Errors
+│   └── Errors.sol - "Contains all the custom errors"
+├── Oracle
+│   ├── Binance - "The contracts hard codes the decimals to 18 decimals and returns the conversion rate of 1 wBETH to ETH underlying the token in the wBETH protocol" 
+│   │   ├── IStakedTokenV2.sol
+│   │   ├── WBETHShim.sol
+│   │   └── WBETHShimStorage.sol
+│   ├── Mantle - "The contracts hard codes the decimals to 18 decimals and returns the conversion rate of 1 mETH to ETH underlying the token in the mETH protocol"
+│   │   ├── IMethStaking.sol
+│   │   ├── METHShim.sol
+│   │   └── METHShimStorage.sol
+│   ├── IRenzoOracle.sol - "Interface of Renzo Oracle"
+│   ├── RenzoOracle.sol - "Responsible for getting mint/burn amounts and collateral token value lookup from configured price feeds on L1"
+│   └── RenzoOracleStorage.sol - "Storage contract for RenzoOracle on L1"
+├── Permissions
+│   ├── IRoleManager.sol - "Interface of RoleManager used by caller contracts"
+│   ├── RoleManager.sol - "Access Control contract of the protocol"
+│   └── RoleManagerStorage.sol - "Storage Contract of RoleManager"
+├── RateProvider
+│   ├── BalancerRateProvider.sol - "Contract to Provide Mint Rate of LRT(ezETH)"
+│   ├── BalancerRateProviderStorage.sol - "Storage contract of BalancerRateProvider"
+│   └── IRateProvider.sol - "Interface of BalancerRateProvider used by caller contracts"
+├── RestakeManager.sol  - "Users interact with this contract for deposits"
+├── RestakeManagerStorage.sol - "Storage contract for RestakeManager"
+├── IRestakeManager.sol - "Interface for RestakeManager"
+├── Rewards
+│   ├── RewardHandler.sol - "Handle the rewards coming from Eigen Layer"
+│   └── RewardHandlerStorage.sol - "Storage contract for RewardHandler Contract"
+├── Withdraw
+│   ├── IWithdrawQueue.sol - "Interface of WithdrawQueue"
+│   ├── WithdrawQueue.sol - "Handles ezETH withdraw requests of users"
+│   └── WithdrawQueueStorage.sol - "Storage contract for WithdrawQueue"
+└── token
+    ├── EzEthToken.sol - "Renzo restaked Token"
+    ├── EzEthTokenStorage.sol - "Storage contract for EzEthToken"
+    └── IEzEthToken.sol - "Interface of EzEthToken"
+```
+
+## Links
+
+- Previous Audits - [Halborn](https://github.com/Renzo-Protocol/contracts-public/blob/master/Audit/Renzo_Protocol_EVM_Contracts_Smart_Contract_Security_Assessment.pdf).
+- [Renzo Website](https://www.renzoprotocol.com/)
+- [Documentation](https://docs.renzoprotocol.com/docs)
+- [Twitter](https://twitter.com/RenzoProtocol)
+- [Discord](https://discord.gg/FMwGPDXXtf)
+- [Mirror](https://mirror.xyz/renzoprotocol.eth)
+- [Telegram](https://t.me/RenzoProtocolChat)
 
 
 
@@ -262,16 +349,16 @@ Integrity of TVL calculations (ezETH Pricing) - a user should not be able to man
 
 |                Role                | Description |
 |:----------------------------------:|:-----------:|
-| RX_ETH_MINTER_BURNER               |             |
-| OPERATOR_DELEGATOR_ADMIN           |             |
-| ORACLE_ADMIN                       |             |
-| RESTAKE_MANAGER_ADMIN              |             |
-| TOKEN_ADMIN                        |             |
-| NATIVE_ETH_RESTAKE_ADMIN           |             |
-| ERC20_REWARD_ADMIN                 |             |
-| DEPOSIT_WITHDRAW_PAUSER            |             |
-| RoleManagerAdmin                   |             |
-| DefaultProxyAdmin Owner (Upgrades) |             |
+| RX_ETH_MINTER_BURNER               | minter/burner role for ezETH             |
+| OPERATOR_DELEGATOR_ADMIN           |      allows the admin to set token strategy, delegation address and base gas amount spent       |
+| ORACLE_ADMIN                       | allows the admin to set price feed oracle for ERC20 oracle            |
+| RESTAKE_MANAGER_ADMIN              | allows the admin to configure operatorDelegators(add/remove, allocations), supported collateral tokens and their respective TVL            |
+| TOKEN_ADMIN                        | allows admin to pause/unpause the ezETH token            |
+| NATIVE_ETH_RESTAKE_ADMIN           | allow the admin to stake/unstake to/from EigenLayer by submitting the proofs             |
+| ERC20_REWARD_ADMIN                 | allows the admin to sweep any accumulated ERC20 tokens in DepositQueue contract to the RestakeManager            |
+| DEPOSIT_WITHDRAW_PAUSER            | allows the admin to pause/unpause deposits and withdraws            |
+| RoleManagerAdmin                   | Default admin of RoleManager            |
+| DefaultProxyAdmin Owner (Upgrades) | allows to perform upgrades. currently owner configured to timeLock with a time delay of 3 days             |
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
 
