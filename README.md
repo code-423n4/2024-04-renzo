@@ -187,13 +187,6 @@ After the delay has passed, you can complete your withdraw:
 Note that the protocol must have at least the collateral you are requesting to be delegated to a single Operator in order to withdraw that amount. For example if the protocol has 100 stETH delegated to Operator 1 and 50 stETH delegated to Operator 2, the maximum stETH you can request to withdraw is 100. If you request 110 stETH, the tx will fail. Instead you can perform 2 withdrawals, one for 100 stETH and one for 10 stETH.
 
 
-## Links
-
-- **Previous audits:**  [Halborn audit](https://github.com/code-423n4/2024-04-renzo/blob/main/Audit/Renzo_Protocol_EVM_Contracts_Smart_Contract_Security_Assessment.pdf)
-- **Documentation:** https://docs.renzoprotocol.com/docs
-- **Website:** https://www.renzoprotocol.com/
-- **X/Twitter:** https://twitter.com/RenzoProtocol
-- **Discord:** https://discord.com/invite/renzo
 
 ---
 
