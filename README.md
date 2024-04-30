@@ -53,7 +53,7 @@ When you call deposit(), it will:
 
 - Move your collateral into the RestakeManager
 - Deposit your collateral into EigenLayer
-- Mint rxETH to your address corresponding to the amount of collateral you deposited
+- Mint ezETH to your address corresponding to the amount of collateral you deposited
 
 ## Withdraw Flow
 
@@ -61,25 +61,25 @@ The withdraw flow is a 2 step process. First you will need to sumbit your withdr
 
 When you submit your withdraw request, it will:
 
-- Move your rxETH into the RestakeManager that will be burned
+- Move your ezETH into the RestakeManager that will be burned
 - Calculate how much of the staked tokens you are withdrawing for your collateral value
 - Start a withdraw on EigenLayer
 
 When you complete your withdraw, it will:
 
 - Complete the withdraw on EigenLayer
-- Burn your rxETH
+- Burn your ezETH
 - Send the collateral back to your wallet
 
 To submit a withdraw request:
 
-- Calculate how much rxETH you want to burn in base units (e.g. 5000000000000000 for 0.005 rxETH)
-- Call approve() on the rxETH contract to approve the RestakeManager to move your rxETH
-- Call startWithdraw() on the RestakeManager with the amount of rxETH you want to burn and which collateral token you would like to get back
+- Calculate how much ezETH you want to burn in base units (e.g. 5000000000000000 for 0.005 ezETH)
+- Call approve() on the ezETH contract to approve the RestakeManager to move your ezETH
+- Call startWithdraw() on the RestakeManager with the amount of ezETH you want to burn and which collateral token you would like to get back
 
 When this transaction is complete you will see:
 
-- Your rxETH has been moved into the RestakeManager
+- Your ezETH has been moved into the RestakeManager
 - On Etherscan you will see events from EigenLayer that show a bunch of details
   - Look at transaction -> Logs on Etherscan
   - The 2 logs you will want to use in the next step are:
