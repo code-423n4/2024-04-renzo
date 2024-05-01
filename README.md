@@ -142,6 +142,8 @@ When you call deposit(), it will:
 - Deposit your collateral into EigenLayer
 - Mint ezETH to your address corresponding to the amount of collateral you deposited
 
+**Note:** all the assets are priced in ETH denominations. i.e stETH/ETH, wbETH/ETH, ezETH/ETH.
+
 ## Withdraw Flow
 
 The withdraw flow is a 2 step process. First you will need to sumbit your withdraw request, then wait the timeout period (7 days on mainnet), and finally complete the withdraw.
