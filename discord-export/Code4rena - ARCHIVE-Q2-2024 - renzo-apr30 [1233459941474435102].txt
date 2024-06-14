@@ -1,0 +1,2454 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q2-2024 / renzo-apr30
+==============================================================
+
+[04/30/2024 10:13] kartoonjoy (pinned)
+👋 Hello and welcome to the audit channel for the $112,500 in USDC **Renzo** audit!
+
+📆 Audit opens 04/30/2024 20:00 (20:00 UTC) and runs through 05/08/2024 20:00 (20:00 UTC) (8 days).
+
+Please give a warm welcome to the Renzo Protocol team, particularly @youfoundron, @0xJJ, who will be available for questions either here in the channel or via a **PRIVATE** thread in the Pacific Standard and India Standard timezone(s). 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-04-renzo#top
+Docs Wolf: https://discord.com/channels/810916927919620096/1234957882051657769
+
+{Reactions}
+🥷 (5) 
+
+[04/30/2024 13:10] kartoonjoy (pinned)
+❗Important note: **this audit will use the new rules** as [announced last week](https://code4rena.com/blog/code4rena-spring-update-2024). The Renzo team is keen to start today, so we're adjusting the "effective date" for the new rules to today. 🙂 
+
+Excited to see the new rules in action! 🚀
+
+[Clarifications to new rules](https://github.com/code-423n4/org/issues/159#issuecomment-2085243965)
+
+{Reactions}
+🔥 (7) 
+
+[04/30/2024 13:10] kartoonjoy
+Pinned a message.
+
+
+[04/30/2024 15:31] kartoonjoy
+Pinned a message.
+
+
+[04/30/2024 20:01] knownfactc4_29311
+Started a thread.
+
+
+[04/30/2024 20:02] C4 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+Reminder: all [Automated Findings / Publicly Known Issues](https://github.com/code-423n4/2024-04-renzo#automated-findings--publicly-known-issues) are out of scope and ineligible for awards.
+
+{Embed}
+https://github.com/code-423n4/2024-04-renzo
+GitHub - code-423n4/2024-04-renzo
+Contribute to code-423n4/2024-04-renzo development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/87fb1528-58b5-4291-b3d0-f90d66ed8eae-1D956
+
+{Reactions}
+🔥 (2) 
+
+[04/30/2024 20:04] 0xsorrynotsorry
+Pinned a message.
+
+
+[04/30/2024 20:09] youfoundron
+Hello wardens 👋 
+
+I am ron, a developer at Renzo Protocol
+
+Please feel free to direct any questions towards @0xJJ or myself
+
+{Reactions}
+👍 (12) 🙌 (6) 
+
+[04/30/2024 20:16] kuprumion
+Hello! Are there any tests? I was able to find only this setup script... https://github.com/code-423n4/2024-04-renzo/blob/main/test/mockTests/Scripts/setup.ts
+
+
+[04/30/2024 20:18] kartoonjoy (pinned)
+The setup script is what you'll have for this audit.
+
+{Reactions}
+👍 4739_Skeletor (13) 
+
+[04/30/2024 20:18] kartoonjoy
+Pinned a message.
+
+
+[04/30/2024 21:23] idarrha_adam
+@kartoonjoy | C4🎇🎇 in the deployment script there is cbETH, but in the readme it says they work with wBETH
+
+
+[04/30/2024 21:25] kartoonjoy
+Hi there. Are you suggesting it should read one or the other?
+
+
+[04/30/2024 21:26] idarrha_adam
+i think it should be cbETH, because in script i see only cbETH, stETH, ezETH no wBETH
+
+
+[04/30/2024 21:26] kartoonjoy
+If you can get confirmation, we can probably update it today.
+
+
+[04/30/2024 21:27] idarrha_adam
+@youfoundron can you confirm ?
+
+{Reactions}
+👀 
+
+[04/30/2024 21:52] youfoundron
+@0xJJ can confirm, but I think these are just meant to demonstrate how LST's would be used in the protocol. Whether it is wbETH or cbETH should not matter.
+
+
+[04/30/2024 21:57] jatinj615
+Hey, confirming as Ron said it is just to demonstrate how LST’s would be used in the protocol.
+
+
+[04/30/2024 21:57] idarrha_adam
+it's just so we can know which tokens are meant to interact with the system
+
+
+[04/30/2024 21:59] jatinj615
+Currently stETH and wBETH are accepted on the protocol but it can accept other LSTs as well if configured.
+
+{Reactions}
+👍 
+
+[04/30/2024 22:01] idarrha_adam
+ok, should we find issues about integrating with any LST or just the ones in the readme (steth, wbETH, ezETH)
+
+
+[04/30/2024 22:03] jatinj615
+Preferably the ones in the readme i.e. stETH, wbETH.
+
+{Reactions}
+🙏 
+
+[04/30/2024 22:04] idarrha_adam
+thanks
+
+
+[04/30/2024 22:05] knownfactc4_29311
+Just to double-check, you would like the list to stay as-is correct? I don't want to alter anything if it is as you intend.
+
+
+[04/30/2024 22:12] jatinj615
+Yes please don’t change anything. Readme specifies the LST tokens supported on protocol currently. 🫡
+
+{Reactions}
+👍 
+
+[04/30/2024 22:13] knownfactc4_29311
+Roger that!
+
+
+[05/01/2024 04:20] nilay27
+just to be sure, there are no tests for this audit right?
+
+
+[05/01/2024 04:42] iwildsniperi
+Yes
+
+{Reactions}
+👍 
+
+[05/01/2024 04:42] iwildsniperi
+Only the script
+
+
+[05/01/2024 05:05] aamirusmani1552
+is this also the part of the new rules?
+
+{Reactions}
+💯 
+
+[05/01/2024 05:06] kartoonjoy
+https://discord.com/channels/810916927919620096/1233459941474435102/1234854302502223942
+
+{Reactions}
+👍 
+
+[05/01/2024 05:27] 0xabhay.
+@0xJJ @youfoundron kindly check my private thread
+
+
+[05/01/2024 05:44] mihir1808
+Is documentation bot available for this contest ?
+
+
+[05/01/2024 05:47] seraviz
+yes see https://discord.com/channels/810916927919620096/1234957882051657769/1234957884580827167
+
+{Reactions}
+👍 
+
+[05/01/2024 06:00] guy_in0xnito
+Isn't there a bug bounty listed in immunify for the project
+Or is the scope different?
+
+
+[05/01/2024 06:01] aamirusmani1552
+Nice
+
+
+[05/01/2024 06:01] aamirusmani1552
+Is there a limit though?
+
+
+[05/01/2024 08:37] mylifechangefast.eth_70767
+Let go go go!!!! ¡
+
+{Reactions}
+🔥 
+
+[05/01/2024 10:20] micc01
+Hi, Is there any walkthrough available for this protocol?
+
+
+[05/01/2024 13:43] kartoonjoy (pinned)
+🚨 Wardens, please be advised that all the assets are priced in ETH denominations. i.e stETH/ETH, wbETH/ETH, ezETH/ETH.
+
+{Reactions}
+👌 (4) 
+
+[05/01/2024 13:45] kartoonjoy
+Pinned a message.
+
+
+[05/01/2024 14:46] ahmedaghadi
+Started a thread.
+
+
+[05/01/2024 15:06] youfoundron
+For those seeking to get a basic understanding of EigenLayer, specifically the role of EigenPods please see this blog post: https://www.blog.eigenlayer.xyz/ycie/
+
+{Embed}
+https://www.blog.eigenlayer.xyz/ycie/
+You Could Have Invented EigenLayer: Explaining EigenLayer
+In this blog post, we will take you through the evolution of the protocol, by covering how EigenLayer's architecture emerged from the initial concept.
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/i-made-eigenlayer-copy-2-7A53E.jpg
+
+{Reactions}
+❤️ (8) 
+
+[05/01/2024 15:11] youfoundron (pinned)
+I will also try my best to summarize:
+
+EigenLayer:
+* To participate in EigenLayer you must stake a validator node and point its withdrawal credentials to an EigenPod
+* EigenPods are used to track ETH validator balances
+* An EigenPod's validator balance (tracked by submitting proofs of beacon chain activities to the EigenPod contract) translates to shares that can be delegated to operators to secure AVS's on EigenLayer
+* An EigenPod can only delegate shares to a single operator
+
+Renzo:
+* We use a contract called the "OperatorDelegator" in order to manage share delegation and admin on our EigenPods.
+* Every OperatorDelegator contract is responsible for only one EigenPod
+
+
+[05/01/2024 15:13] youfoundron
+FWIW: You should not have to understand EigenLayer in order to perform this audit. We are mainly concerned with the math and security around withdrawals and TVL calculations.
+
+{Reactions}
+🔥 (7) 
+
+[05/01/2024 15:14] youfoundron
+@0xJJ will describe the general withdrawal flow below:
+
+
+[05/01/2024 15:20] jatinj615 (pinned)
+The withdrawQueue contract get filled by 3 ways ->
+1. New Deposits
+2. Daily Rewards Coming in the Protocol.
+3. Manual withdrawal from EigenLayer. Permissioned call from OperatorDelegator.
+-> If options 1 and 2 are not sufficient to fulfil withdraw requests of Users then admin accounts will manually unstake from EigenLayer periodically through 2 step process (in case of ETH 3 steps) -
+1.  OperatorDelegator.queueWithdrawals
+2.a. OperatorDelegator.verifyAndProcessWithdrawals (for ETH full withdrawal from EigenLayer which requires proof submission generated Offchain ).
+2.b. OperatorDelegator.completeWithdrawals.
+
+User Withdrawal flow is 3 step process -
+1. Approve ezETH amount user wants to withdraw to WithdrawQueue contract.
+2. Call withdraw function in WithdrawQueue contract specifying the collateral asset and amount of ezETH to withdraw.
+3. Claim the collateral asset after cooldown period from WithdrawQueue contract
+
+
+[05/01/2024 15:23] kartoonjoy
+Pinned a message.
+
+
+[05/01/2024 15:23] kartoonjoy
+Pinned a message.
+
+
+[05/01/2024 18:26] nican0r
+How does a user initiate a withdrawal? The README on the competition repo says
+> Call startWithdraw() on the RestakeManager with the amount of ezETH you want to burn and which collateral token you would like to get back 
+but there's no function in the `RestakeManager` contract named `startWithdraw`  and there doesn't seem to be anything with logic that would perform the same function.
+
+
+[05/01/2024 18:32] jatinj615
+Hey ser @nican0r , added the user withdrawal flow in the pinned msg above. 🫡
+
+{Reactions}
+🔥 
+
+[05/01/2024 20:06] nican0r
+Awesome, thanks 🙏 ! 
+
+Now I'm confused about where the assets received by the user in the withdrawal flow come from. It looks like the `WithdrawQueue::withdraw` function batches requests into the `withdrawRequests` array but these never actually get sent to EigenLayer.  
+
+I saw your point above about `WithdrawQueue` being filled by new deposits and rewards coming into the protocol. Does this mean that newly deposited assets get sent to the  `WithdrawQueue` , and if so wouldn't that imply that they don't end up getting staked in EigenLayer? Does this also mean that `WithdrawQueue` is the receiving address for EigenLayer rewards?
+
+
+[05/01/2024 20:09] tapir31
+@0xJJ are operators trusted?
+
+{Reactions}
+👀 
+
+[05/01/2024 20:36] jatinj615
+yes
+
+
+[05/01/2024 21:28] youfoundron
+Yes, Renzo<>Operator relationships are personal relationships and business agreements
+
+
+[05/01/2024 21:28] youfoundron
+Oops, meant as a reply to @tapir
+
+
+[05/01/2024 21:29] youfoundron
+Deposits only go to the withdrawqueue if it is below a certain threshold. Otherwise they go to the deposit queue where they await staking.
+
+{Reactions}
+❤️ 👍 
+
+[05/02/2024 02:41] auditor_79099
+Hi, I wanna know about withdraw flow more detail. step by step by function unit.
+
+
+[05/02/2024 04:35] nicks_2.07_
+Hi
+
+
+[05/02/2024 06:51] auditsea
+@youfoundron @0xJJ - Is there any asumption that current scope of Renzo should work on EigenLayer M1 or M2?
+
+
+[05/02/2024 06:54] blckhv
+M2 confirmed
+
+
+[05/02/2024 06:55] auditsea
+Great, thanks for the information.
+
+
+[05/02/2024 07:32] auditsea
+Also, just to confirm, there isn't test suite right?
+
+{Reactions}
+👍 
+
+[05/02/2024 07:33] 0xabhay.
+yes!
+
+
+[05/02/2024 08:21] guy_in0xnito
+Can anyone give me a bit of gist of the user flow of the protocol
+
+
+[05/02/2024 08:42] 14si2o_flint
+It's pretty well described in the contest readme
+
+{Reactions}
+🪨 
+
+[05/02/2024 08:45] guy_in0xnito
+If you are talking about the deposit and withdraw i got that part my main doubt was with the bridge codebase and different oracle in layers ?
+
+
+[05/02/2024 10:10] .satyam_
+@youfoundron @0xJJ please reply on pvt thread
+
+
+[05/02/2024 16:03] 0xleadwizard
+Are there any list of tokens that is going to be used?
+
+
+[05/02/2024 16:23] aga7hokakological
+all LST and native ETH ig
+
+
+[05/02/2024 16:38] auditor_79099
+Are not there test files in this protocol? Who can give me ,plz?
+
+
+[05/02/2024 16:41] m_rassska
+there are no test files
+
+
+[05/02/2024 16:57] auditsea
+@youfoundron @0xJJ - Some roles like withdraw quee admin are not trusted? Not seeing them on trusted role list on C4
+
+
+[05/02/2024 17:13] jatinj615
+Hey @auditsea , yes that is a trusted role. Also want to mention that all the different Roles in the Protocol under RoleManager are trusted as of now.
+
+
+[05/02/2024 17:34] auditsea
+Thanks for the information. Although it would be better to have the statement on C4 contest page so that later there won't be problems related to trusted roles.
+
+
+[05/02/2024 18:02] squilliamx
+contracts
+├── Bridge
+│   ├── Connext - "Connext Interface Contract and Libraries used in the protocol"
+
+
+hi above is the `in scope` of the protocol. but in the connext folder there are 3 subfolders with files in each. are these 3 folders in `connext` named `core`, `integration`and `librabries` in scope?
+
+
+[05/02/2024 18:08] squilliamx
+EigenLayer - "EigenLayer Interfaces and Libraries used"
+
+also, above is what the `in scope` section says as well. So are all the folders and files inside of the Eigenlayer folder in scope as well? I ask because it doesn't directly name the contracts that are in scope like the other contracts it names in the `in scope` section
+
+
+[05/02/2024 18:21] auditor_79099
+when depositing token, which token is used?
+
+
+[05/02/2024 18:33] ivi4yh3ivi
+<https://docs.renzoprotocol.com/docs/renzo/ezeth>: `Users can deposit native ETH or LSTs and receive ezETH.`
+also: https://discord.com/channels/810916927919620096/1233459941474435102/1234987642001686538
+
+
+[05/02/2024 18:43] auditor_79099
+Is there an entire diagram?
+
+
+[05/02/2024 19:28] squilliamx
+is anyone else getting this issue where their IDE isn't showing any errors as they write tests until after they compile the tests?
+
+
+[05/02/2024 19:28] squilliamx
+anyone know how to fix this?
+
+
+[05/02/2024 19:50] ivi4yh3ivi
+last time i had that issue was when i was using the juan blanco solidity extesion. didin't have the problem anymore after i switched to the nomic foundation one
+
+
+[05/02/2024 21:09] squilliamx
+yeah i went restarted my laptop and went into the settings and it fixed itself somehow lol
+
+
+[05/02/2024 23:31] maxwell4426
+Started a thread.
+
+
+[05/03/2024 02:26] 0xabhay.
+@0xJJ  please check my private thread
+
+
+[05/03/2024 02:45] kennedybailey
+Which ERC20 Tokens are supposed to be used in this protocol?
+
+
+[05/03/2024 04:45] iwildsniperi
+https://discord.com/channels/810916927919620096/1233459941474435102/1234987642001686538
+
+
+[05/03/2024 07:13] guhu95
+@0xJJ What does the _"Node Operator deposit front runs"_ in "Known Risks" section refer to?
+
+
+[05/03/2024 08:05] bronze_pickaxe
+I asked the Sponsor the same q, this one:
+- https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239
+
+{Embed}
+https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239
+Mitigations for deposit front-running vulnerability
+On Oct 5, 2021, a potential exploit was reported via the Lido bug bounty program. The exploit could only be performed by a whitelisted node operator and allowed stealing a small share of user funds. The response timeline and details can be found in this Lido blog post.  The vulnerability is currently fully mitigated by pausing deposits from the ...
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/8d3e77d0e4936c97f2b6189ab18370bd88fbe91e-4985A.png
+
+{Reactions}
+❤️ 🙏 
+
+[05/03/2024 09:12] 0xjuaan
+hey guys, does anyone know where to get the following modules for the `setup.ts` script to work? (the ones underlined in red) @0xJJ
+
+
+[05/03/2024 09:13] 0xjuaan
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image-AF1A4.png
+
+
+[05/03/2024 09:16] m_rassska
+yeah, basically, it's a popular attack vector! 
+
+In two words: you provide eth(from the pool) to the node operator, who might front-run the deposit of 32 eth by replacing the withdrawal credentials and depositing minimum 1eth. On a beacon chain, you can't re-set wcs once they're setted. Also, check out the Frax contest report on c4. That issue appeared there as well.
+
+{Reactions}
+🙏 (2) 
+
+[05/03/2024 11:22] mt030d
+@0xJJ what kinds of rewards go to the RewardHandler.sol contract?
+
+
+[05/03/2024 12:24] jatinj615 (pinned)
+Hey guys, would like to drop some common **FAQs** which we are seeing in private threads - 
+1. Role of RewardHandler.sol - RewardHandler will be responsible to handle the Rewards coming in from EigenLayer. But as EigenLayer Payments system has not been finalised yet. It is expected to change accordingly. 
+2. RenzoOracleL2 - This contract provides an additional feature (if configured, not yet live on prod) to continuously update the mintRate of ezETH on L2. Also, please note that it **WILL NOT** be using DEX price feed of ezETH by chainlink. Instead a custom-feed will be started which will read the exchangeRate(mintRate) of ezETH from L1. 
+To read more on chainlink custom feed - https://docs.chain.link/data-feeds/selecting-data-feeds/#-custom-feeds
+3. The revert condition in RenzoOracleL2 
+```if (_scaledPrice < 1 ether) revert InvalidOraclePrice();```
+- As, ezETH is a yieldBearing Token which means exchangeRate of ezETH >= 1 ETH. The revert condition is placed to provide a protection of protocol collateral against any wrong oracle feed and restricts user to deposit and mint more ezETH then they are supposed to. 
+4. If you want to get understanding of xERC20 flow. would recommend this awesome documentation by connext. It would help in understanding the xReceive flow in xRenzoBridge - 
+https://docs.connext.network/usecases/xerc20/setup-guide
+5. Blast network support - xRenzoDeposit is not deployed on blast. Also Blast is not supported by connext hence the protocol is using Blast Native Bridge by using OptimismMintableXERC20 (xezETH contract on Blast) instead of XERC20.
+6. Trusted Roles - All the Roles in The RoleManager are Trusted Roles.
+7. Connext router fee of 5bps is deducted on collateral to compensate the fee on connext bridge - read here https://docs.connext.network/developers/guides/estimating-fees
+
+
+[05/03/2024 12:41] kartoonjoy (pinned)
+🚨 Wardens, please also **utilize the @Docs Wolf in a __public__ or __private__ thread** to answer any of your more basic questions or concerns. https://discord.com/channels/810916927919620096/1234957882051657769
+
+We want to allow the sponsor to have more room to answer the more complex questions.
+
+Thank you!
+
+
+[05/03/2024 12:41] kartoonjoy
+Pinned a message.
+
+
+[05/03/2024 12:42] kartoonjoy
+Pinned a message.
+
+
+[05/03/2024 13:29] iwildsniperi
+what is the context of this message?
+
+
+[05/03/2024 14:30] iwildsniperi
+thx kartoon
+sorry if any of our questions seems stupid
+1- time is too little for such scope and we want to get shortest road to get general understanding of the protocol
+2- bot seems some how outdated in some contracts it metions a function that it is not there at all
+so cope with us please guys we are trying to provide best value here, no jokes
+
+{Reactions}
+empathy (2) 
+
+[05/03/2024 14:32] iwildsniperi
+but i have to say this natspec is one of the best i have seen
+
+{Reactions}
+🎉 
+
+[05/03/2024 15:16] kartoonjoy
+I want to be clear, no one is being singled out, and we're not saying the questions were stupid. It's possible that the documentation may need some updates, but where possible, we're encouraging you to use the bot. This then allows sponsors more time to address questions requiring a deeper knowledge base.
+
+{Reactions}
+✅ (2) 
+
+[05/03/2024 18:27] t0x1c.c0de
+@youfoundron @0xJJ Fair to assume these notes on the contest page should now be replaced with references to `WithdrawQueue::withdraw()` and `WithdrawQueue::claim()`?
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image-A494D.png
+
+
+[05/03/2024 18:41] 0xhacksmithh
+@youfoundron @0xJJ  made a PT, pls check when you have time thanks
+
+
+[05/03/2024 19:03] jatinj615
+Yes ser, the flow is from WithdrawQueue contract.
+
+{Reactions}
+👍🏻 
+
+[05/03/2024 19:05] jatinj615
+Have pinned some messages in the channel explaining the Withdraw Flow which might be helpful. 🫡
+
+
+[05/03/2024 20:04] nican0r
+@0xJJ I know you said here that if the withdrawal buffer isn't sufficiently filled, admin accounts will manually unstake. Just want to clarify if this will be a fully manual process or will there be an offchain keeper that handles these unstaking calls
+
+
+[05/03/2024 20:06] jatinj615
+Yes there will be an offchain keeper. which will periodically keep filling the buffer. Just like other functionalities performed by `onlyNativeEthRestakeAdmin`
+
+{Reactions}
+👍 
+
+[05/03/2024 20:58] squilliamx
+are the Connext Interface Contract and Libraries used in the protocol in scope?
+
+
+[05/03/2024 21:31] 0xhacksmithh
+@0xJJ Hi ser, ask something in PT
+
+
+[05/04/2024 00:04] guy_in0xnito
+@0xJJ / @youfoundron  please check PT. When anyone of you got time
+
+
+[05/04/2024 00:21] sin1st3r__
+@0xJJ / @youfoundron kindly check PT
+
+
+[05/04/2024 06:28] aamirusmani1552
+Did you find these?
+
+
+[05/04/2024 06:31] 0xjuaan
+sponsor said they won't release those..
+
+{Reactions}
+👍 (3) 
+
+[05/04/2024 08:41] mt030d
+@0xJJ There are two versions of the ezETH token:
+1. https://etherscan.io/address/0xbf5495Efe5DB9ce00f80364C8B423567e58d2110
+2. https://etherscan.io/address/0x2416092f143378750bb29b79ed961ab195cceea5
+
+What is the relationship between these two ezETH tokens?
+
+{Embed}
+https://etherscan.io/address/0xbf5495Efe5DB9ce00f80364C8B423567e58d2110
+Renzo Protocol: Renzo Restaked ETH Token | Address 0xbf5495Efe5DB9c...
+The Contract Address 0xbf5495Efe5DB9ce00f80364C8B423567e58d2110 page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Etherscan.
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/og-F493A.jpg
+
+{Embed}
+https://etherscan.io/address/0x2416092f143378750bb29b79ed961ab195cceea5
+TransparentUpgradeableProxy | Address 0x2416092f143378750bb29b79ed9...
+The Contract Address 0x2416092f143378750bb29b79ed961ab195cceea5 page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Etherscan.
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/og-F493A.jpg
+
+
+[05/04/2024 08:57] iwildsniperi
+same one
+
+
+[05/04/2024 08:57] iwildsniperi
+cause its proxy token
+
+
+[05/04/2024 15:30] auditor_79099
+Hi, everyone. Which case can podOwnerShares be negative value?
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image-A5915.png
+
+
+[05/04/2024 16:14] _3doc_
+LMDWTFY
+
+
+[05/04/2024 16:14] _3doc_
+In the EigenPodManager, `podOwnerShares` can have a negative value when a pod owner's virtual beacon chain ETH shares decrease between the time they queue and complete a withdrawal. This situation is described as a "share deficit." When shares are added to a pod owner's account, any existing deficit is paid off first, and only the remaining shares are added to their balance. This mechanism ensures that the withdrawal process is fair and prevents improper removal of excessive shares from the operator to whom the staker is delegated.
+
+Thank you @Docs Wolf
+
+{Reactions}
+chefskiss (2) 
+
+[05/04/2024 16:25] auditor_79099
+Hi @0xJJ , In ReadME, it says that ERC20 used by the protocol are ezETH, stETH, wBETH. If so, what is METH of Oracle/Mantle? And what is practical value of _allocationBasisPoints?
+
+
+[05/04/2024 16:30] auditor_79099
+thank you for your reply.
+
+
+[05/04/2024 17:07] _3doc_
+@Docs Wolf has an excellent answer for this too, it's just waiting for you to open a private thread and ask 😄
+
+{Reactions}
+🫡 💯 
+
+[05/05/2024 06:48] auditor_79099
+Hi everyone, could you please explain about this.
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image-8B972.png
+
+
+[05/05/2024 08:01] .0xsecuri
+@0xJJ Which oracle will be employed for stETH ? STETH / ETH or STETH / USD ?
+
+
+[05/05/2024 08:09] tigerfrake
+I'm curious about this one too
+
+
+[05/05/2024 08:22] m_rassska
+0x86392dC19c0b719886221c78AB11eb8Cf5c52812
+Currently in a deployed version it's stETH/ETH
+
+{Reactions}
+thankyou (3) 
+
+[05/05/2024 13:41] 0xabhay.
+@0xJJ   please check my private thread
+
+
+[05/05/2024 14:38] auditor_79099
+@0xJJ  please check my private thread
+
+
+[05/05/2024 17:29] 0xvj
+@0xJJ @youfoundron 
+what is the purpose of `sweepERC20` function in depositQueue?  In which cases depositQueue will receive LSTs as rewards?
+
+
+[05/05/2024 17:46] jatinj615
+If anyone intentionally or by mistake send the supported assets to deposit then sweepERC20 will be performed as depositQueue is not supposed to have ERC20 assets. So it will be accumulated as protocolReward.
+
+{Reactions}
+👍 
+
+[05/05/2024 17:56] auditor_79099
+please check my thread.https://discord.com/channels/810916927919620096/1236368135695634452
+
+
+[05/05/2024 17:59] m4k2
+Hi, do you know any lrt with fee on transfer ?
+
+
+[05/06/2024 01:14] guy_in0xnito
+Can anyone tell me is the codebase using redstone oracles
+
+
+[05/06/2024 02:15] gjaldon
+Hello @0xJJ @youfoundron! Just to verify since it's unclear. Will wbETH and mETH be accepted as collateral tokens in the Restake Manager? Thank you in advance for the response 🙏
+
+
+[05/06/2024 03:37] squilliamx
+what is the `Renzo Receiver middleware contract` ?
+
+
+[05/06/2024 03:40] squilliamx
+do we have access to this Receiver middleware contract?
+
+
+[05/06/2024 03:41] squilliamx
+because i cannot find it yet it is mentioned in natspec
+
+
+[05/06/2024 04:04] 0xabhay.
+@0xJJ sweepERC20 can be a any erc20?
+
+
+[05/06/2024 05:18] 0xshaheen
+Hey @0xJJ @youfoundron, The buffer value used in the setup for Native Ethers, should we expect the same value for the LSTs/ERC20s as well or it will be different?
+
+
+[05/06/2024 06:29] dinesh11g
+we only Mint ezETH or also other 2 tokens been randomly minted ?
+
+
+[05/06/2024 07:27] blckhv
+**supported assets to deposit** - https://discord.com/channels/810916927919620096/1233459941474435102/1236735727228682250
+
+
+[05/06/2024 07:29] 0xabhay.
+and then it will deposit into a strategy to earn additional reward?
+
+{Reactions}
+👍 (2) 
+
+[05/06/2024 07:50] jatinj615
+Hey ser, wbETH is already accepted as collateral on mainnet. mETH is not yet supported but technically can be supported using METHShim contract if required
+
+{Reactions}
+🙏🏼 👍 
+
+[05/06/2024 07:50] iwildsniperi
+can you reply on my pt?
+
+
+[05/06/2024 08:11] auditor_79099
+@0xJJ , check my thread.
+
+
+[05/06/2024 08:12] jatinj615
+Please refer to pinned msgs on withdrawBuffer related questions.
+
+
+[05/06/2024 08:14] auditor_79099
+@0xJJ , and then would you please explain about this?
+
+
+[05/06/2024 08:15] jatinj615
+ezETH was non transferable in the initial stage when in private beta phase. But rn it’s fully transferable you can checkout on mainnet. 👍🏻
+
+{Reactions}
+👍🏻 
+
+[05/06/2024 08:17] auditor_79099
+And then what is the DWR reward in operatorDelegator?
+
+
+[05/06/2024 09:00] auditor_79099
+@0xJJ  I'm waiting for your reply. and then thank you for your kindness.
+
+{Reactions}
+🥲 
+
+[05/06/2024 09:01] jatinj615
+Hey ser, DWR - DelayedWithdrawalRouter contract in EigenLayer
+
+{Reactions}
+❤️ 
+
+[05/06/2024 09:04] auditor_79099
+thank you for your reply. and then check my thread.
+
+{Reactions}
+chefskiss 🤠 
+
+[05/06/2024 09:17] guy_in0xnito
+@0xJJ @youfoundron 
+Mentioned you guyz in pvt thread
+
+
+[05/06/2024 09:17] auditor_79099
+me too.
+
+
+[05/06/2024 09:28] auditor_79099
+@0xJJ , would you please check my pvt thread?
+
+
+[05/06/2024 09:34] jatinj615
+Also wardens, would recommend making the PTs with your discord username. Easy for us to track. 🫡
+
+{Reactions}
+👍 (3) 
+
+[05/06/2024 09:36] 0xlrivo
+Which contract is the receiver middleware?
+
+
+[05/06/2024 10:12] mylifechangefast.eth_70767
+How many questions, damn😅
+
+{Reactions}
+🤣 
+
+[05/06/2024 10:26] _3doc_
+These two 👀
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image-69E59.png
+
+
+[05/06/2024 12:00] 0xpessimist
+@0xJJ Can you check my private thread please, thx <3
+
+
+[05/06/2024 12:08] 0xlrivo
+thanks
+
+
+[05/06/2024 15:44] sathish9098kumar
+@0xJJ Please check my private thread please
+
+
+[05/06/2024 16:46] gjaldon
+Thank you ser! Also, are there any other collateral tokens that will be accepted in Renzo apart from stETH, wbETH, and mETH? Are those the only ones?
+
+
+[05/06/2024 17:05] jatinj615
+Currently ETH, stETH and wbETH are live on renzo for now.
+
+
+[05/06/2024 17:23] 0xhacksmithh
+@0xJJ Asked something in PT, wating for your responce, thanks again
+
+
+[05/06/2024 17:47] 0xshaheen
+@0xJJ ser pls confirm this
+
+
+[05/06/2024 20:23] idarrha_adam
+@0xJJ will the protocol redeploy for the other chains , or are you only going to bridge assets from these chains?
+
+
+[05/06/2024 20:29] jatinj615
+Can be configurable according to the user demand.
+
+{Reactions}
+👍 
+
+[05/06/2024 20:29] jatinj615
+the deployed contracts on L2 are under Bridge/L2
+
+{Reactions}
+👍 
+
+[05/06/2024 22:39] mylifechangefast.eth_70767
+@0xJJ please check private thread
+
+
+[05/07/2024 01:30] justbuks
+@0xJJ @youfoundron please check private thread
+
+
+[05/07/2024 02:49] 0xjuaan
+@0xJJ please see private thread, thanks in advance
+
+
+[05/07/2024 04:27] sathish9098kumar
+Hi where I can find connext contract implementations?
+
+
+[05/07/2024 04:31] t0x1c.c0de
+Hey @0xJJ @youfoundron have a look at the private thread please, whenever you can.
+
+
+[05/07/2024 04:37] sin1st3r__
+@0xJJ @youfoundron kindly check priv8 thread. thx.
+
+
+[05/07/2024 07:20] 0xabhay.
+@0xJJ @youfoundron please check my  private thread thank you.
+
+
+[05/07/2024 07:45] ev_om
+https://github.com/connext/monorepo/blob/main/packages/deployments/contracts/contracts/core/connext/facets/BridgeFacet.sol#L299
+https://github.com/connext/monorepo/blob/main/packages/deployments/contracts/contracts/core/connext/facets/BridgeFacet.sol#L1003
+
+Hope this helps
+
+{Reactions}
+👍 (3) 
+
+[05/07/2024 11:39] pronobis4
+When it comes to trusted roles, the assumption is that they always do the right thing and don't make mistakes?
+
+
+[05/07/2024 11:40] 0xaman.
+yeah in most of the cases , i think there are some case if due to there mistake the user lose funds or some core functionality stop working can be considerd as a valid finding
+
+
+[05/07/2024 12:35] ilchovski
+do you guys write the POCs in foundry by writing brand new setup function that deploys the contracts or I am missing something?
+
+
+[05/07/2024 12:42] ilchovski
+there is some setup that needs to be done in order to provide working POCs
+
+
+[05/07/2024 14:00] auditor_79099
+Hi @0xJJ , @youfoundron , would you please confirm my private thread?
+
+
+[05/07/2024 14:06] 0xtendency
+With just one more day left to review these contracts, if we could get one more sponsor from the team, to help clear some of our queries, it would be nice @0xJJ @youfoundron .
+As much as we would like to dig and run through documentation, we do not have much time, also considering the code size and the amount of time we'll have to spend to submit a quality report
+
+{Reactions}
+this (7) 
+
+[05/07/2024 17:26] auditor_79099
+Hi @0xJJ , @youfoundron , would you please confirm my private thread? and thank you for your kindness.
+
+
+[05/07/2024 19:28] acegawd
+Check private thread @0xJJ @youfoundron
+
+
+[05/07/2024 19:31] jatinj615
+Hey wardens, please create PTs with your names. 🙏🏻
+Thanks 🫡
+
+
+[05/07/2024 19:38] auditor_79099
+Hi @0xJJ , would you please check my private thread? https://discord.com/channels/810916927919620096/1236368135695634452
+
+
+[05/07/2024 19:42] 0xtendency
+You can do this by right-clicking on your Thread name and then clicking on `Edit Thread`. Change the thread name to your name and then `Save Changes`
+
+
+[05/07/2024 19:49] acegawd
+It's either acegawd or the server name '0xmint'
+
+
+[05/07/2024 19:50] 0xtendency
+your c4 nickname. For you, it's `0xmint`
+
+
+[05/07/2024 19:51] 0xtendency
+It is simply the display name, we see here
+
+
+[05/07/2024 19:51] acegawd
+Yes I'm aware
+
+{Reactions}
+🫡 
+
+[05/07/2024 20:03] nican0r
+Yeah I had to do this, it took a significant amount of time. 
+
+I was going to request for an extension if possible because this really adds significant overhead to write POCs (I believe they're required for validating H/Ms at this point). For such a short contest period not including a test suite or at least a setup function for a test suite will significantly take away from warden's ability to create meaningful submissions leading to lower quality submissions or potentially valid submissions that couldn't be validated with a POC in time being invalidated. 
+
+Ultimately it seems like a lose-lose for the protocol team and wardens
+
+{Reactions}
+👍 (3) 
+
+[05/07/2024 20:07] m_rassska
+why should every H/M submission include coded POC? Can i have a source, where it's stated?
+
+
+[05/07/2024 20:17] nican0r
+Generally it creates a higher quality submission but I think I might've been confused with another audit competition platform, couldn't find anything in the c4 docs that it's a requirement. Maybe the judge for this competition could weigh in here.
+
+
+[05/07/2024 20:51] baz1ka
+I thought every submission must have POC...
+
+
+[05/07/2024 20:54] auditor_79099
+Hi @0xJJ  , would you please check my private thread? ⁠https://discord.com/channels/810916927919620096/1236368135695634452
+
+
+[05/07/2024 20:55] mylifechangefast.eth_70767
+@0xJJ  please check private thread
+
+
+[05/07/2024 20:55] mylifechangefast.eth_70767
+Please🙏
+
+
+[05/07/2024 20:55] mylifechangefast.eth_70767
+@0xJJ
+
+
+[05/07/2024 20:56] jatinj615
+Plz ping. Can’t find your thread good ser. 🙏🏻
+
+
+[05/07/2024 20:57] acegawd
+Still waiting on your response to my thread .
+
+
+[05/07/2024 20:57] jatinj615
+Ping ser. 🙏🏻
+
+
+[05/07/2024 20:58] acegawd
+Pinged you in the thread .
+
+
+[05/07/2024 21:08] jatinj615
+Hey wardens have pinned a new FAQ regarding 5bps router fee on L2. Please refer to that. And help others. Would really appreciate it. 🙌🏻
+
+
+[05/07/2024 21:09] baz1ka
+If you have time, check my PT too #deleted-channel
+
+
+[05/07/2024 22:13] justbuks
+@0xJJ pls check out thread
+
+
+[05/07/2024 23:02] maxwell4426
+Started a thread.
+
+
+[05/08/2024 02:11] whoismxuse
+hi sir, pinged u in my thread ; )
+
+
+[05/08/2024 02:22] blutorque
+I think a worded PoC will also work until its has more complexity,
+
+{Reactions}
+💯 
+
+[05/08/2024 03:27] tigerfrake
+Sure, can't code everything. Lol
+
+
+[05/08/2024 03:41] shui1
+@0xJJ @youfoundron Hello could you check my thread ? 🙂
+
+
+[05/08/2024 04:02] 0xciphky
+@0xJJ @youfoundron Please check thread when you get some time. Thanks
+
+
+[05/08/2024 04:50] neon2835
+@0xJJ  @youfoundron Please check thread when you get some time. Thanks
+
+
+[05/08/2024 08:52] 0xspearmint
+@0xJJ please check my private thread. Thank you.
+
+
+[05/08/2024 09:32] adityaraj7387
+what is the use of sweepERC20() in depositQueue?
+
+
+[05/08/2024 09:34] adityaraj7387
+it says -> Sweeps any accumulated ERC20 tokens in this contract to the RestakeManager, from where depositQueue receives ERC20 token, is it reward from eigen layer or any extra token that user has donated to protocol
+
+
+[05/08/2024 10:22] m_rassska
+this has been asked a lot of time. Check the msgs above
+
+
+[05/08/2024 10:24] neon2835
+Is the withdrawal delay for all L2 chains the same as the main network for 7 days?
+
+
+[05/08/2024 10:32] adityaraj7387
+Thanks man, found it 👍
+
+
+[05/08/2024 11:05] mylifechangefast.eth_70767
+Please anyone can share we I cN get the swapExact function??
+
+
+[05/08/2024 11:05] mylifechangefast.eth_70767
+🙏
+
+
+[05/08/2024 11:12] irving6969
+connext
+
+
+[05/08/2024 11:13] irving6969
+https://discord.com/channels/810916927919620096/1233459941474435102/1237302968856875049
+
+
+[05/08/2024 11:18] 0xshoonya
+@0xJJ Hey, Please check my private thread
+
+
+[05/08/2024 17:27] iwildsniperi
+Validators of the contest will have very high amount of tasks in this contests
+
+{Reactions}
+hi5 (3) 
+
+[05/08/2024 17:33] justbuks
+@0xJJ pls check thread
+
+
+[05/08/2024 18:47] gesha17.
+Hey @youfoundron @0xJJ can you check thread please?
+
+
+[05/08/2024 18:58] iwildsniperi
+didnt have any time to submit QA
+
+
+[05/08/2024 18:59] mylifechangefast.eth_70767
+Has it ended
+
+
+[05/08/2024 19:01] iwildsniperi
+ye
+
+
+[05/08/2024 19:01] iwildsniperi
+i was writing the last words
+alot of QA not submitted
+
+
+[05/08/2024 19:02] iwildsniperi
+imagine all my mediums gets labeled as QA😂
+
+
+[05/08/2024 19:04] iwildsniperi
+thx for @0xJJ and @youfoundron 
+looking forward to see you in mitigation
+
+
+[05/08/2024 19:06] blckhv
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/Screenshot_2024-05-08_at_10.06.03_PM-B74E8.png
+
+
+[05/08/2024 19:10] iwildsniperi
+how?
+
+
+[05/08/2024 19:11] iwildsniperi
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image-01DF2.png
+
+
+[05/08/2024 19:11] iwildsniperi
+i cant submit
+
+
+[05/08/2024 19:12] iwildsniperi
+i have 3 mediums to submit yet🥲
+
+
+[05/08/2024 19:13] iwildsniperi
+weird
+
+
+[05/08/2024 19:13] iwildsniperi
+i changed my clock back 1 hour😂
+
+
+[05/08/2024 19:13] iwildsniperi
+its working now
+
+
+[05/08/2024 19:15] jatinj615
+Infinite time game ♾️? 👀😂
+
+{Reactions}
+kek (8) 😂 
+
+[05/08/2024 19:17] iwildsniperi
+ye seems gamable
+
+
+[05/08/2024 19:17] iwildsniperi
+@kartoonjoy | C4🎇🎇
+
+
+[05/08/2024 19:23] itsmetechjay
+The audit is still live for another 38 minutes.
+
+
+[05/08/2024 19:24] iwildsniperi
+ye sir
+its a problem in my country
+they increase the time by 1 hour in summer
+
+{Reactions}
+😂 (5) 🇵🇱 🇱🇹 
+
+[05/08/2024 19:24] iwildsniperi
+sorry for inconvenience
+
+
+[05/08/2024 19:24] iwildsniperi
+thx @blckhv
+
+
+[05/08/2024 19:28] mylifechangefast.eth_70767
+😂🤣🤣🤣🤣
+
+
+[05/08/2024 19:33] tigerfrake
+Lmao
+
+
+[05/08/2024 19:36] iwildsniperi
+people who know feels me🥲
+
+{Reactions}
+😅 
+
+[05/08/2024 19:39] tigerfrake
+Skip town.lol
+
+
+[05/08/2024 19:58] mylifechangefast.eth_70767
+Is the connext mean to be an upgradeable contract
+
+{Reactions}
+😂 (2) 
+
+[05/08/2024 19:59] mylifechangefast.eth_70767
+Lol
+
+
+[05/08/2024 20:00] sathish9098kumar
+Thanks @0xJJ 🙏
+
+
+[05/08/2024 20:00] mylifechangefast.eth_70767
+Wow so fast
+
+{Reactions}
+😂 (2) 
+
+[05/08/2024 20:00] mylifechangefast.eth_70767
+😂
+
+
+[05/08/2024 20:01] mylifechangefast.eth_70767
+@0xJJ ?
+
+
+[05/08/2024 20:01] mylifechangefast.eth_70767
+It has ended now
+
+
+[05/08/2024 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Renzo** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢・c4-updates for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+
+[05/08/2024 20:02] jatinj615
+Broo. Yes it’s a diamond structure. 🙌🏻😂
+
+{Reactions}
+😂 
+
+[05/08/2024 20:02] mylifechangefast.eth_70767
+You're late bot
+
+{Reactions}
+😂 (2) 
+
+[05/08/2024 20:02] mylifechangefast.eth_70767
+Yeah.. I submitted something 🤣😅
+
+{Reactions}
+😂 (3) hi5 (2) 
+
+[05/08/2024 20:02] mylifechangefast.eth_70767
+:chefskiss:
+
+
+[05/08/2024 20:06] mylifechangefast.eth_70767
+When will judging be over @0xJJ ?
+
+
+[05/08/2024 20:09] iwildsniperi
+i think in 2 days
+
+{Reactions}
+😂 (4) 
+
+[05/08/2024 20:10] mylifechangefast.eth_70767
+In your DM sir
+
+{Reactions}
+😂 
+
+[05/08/2024 20:10] iwildsniperi
+renzo on thier official twitter needs thier withdrawal mainnet before end of may
+
+
+[05/08/2024 20:10] iwildsniperi
+thats why contest was short
+
+
+[05/08/2024 20:10] iwildsniperi
+they still have mitigation and maybe other rounds
+
+
+[05/08/2024 20:13] mylifechangefast.eth_70767
+Well
+
+
+[05/08/2024 20:15] tigerfrake
+Lmao. Ain't no way
+
+
+[05/08/2024 21:42] forgebyola
+what happened to @kaveyjoe ?
+
+{Reactions}
+😂 (2) 
+
+[05/08/2024 21:43] forgebyola
+Used to always update on number of submissions
+
+
+[05/08/2024 21:44] iwildsniperi
+lets predict till he comes
+
+{Reactions}
+😂 
+
+[05/08/2024 21:48] m_rassska
+as always ~1k
+
+
+[05/08/2024 21:52] iwildsniperi
+where those numbers come from?
+
+
+[05/08/2024 21:52] iwildsniperi
+do people submit their names as valid bug?
+
+
+[05/08/2024 22:30] ihtishamsudo
+1k+
+
+{Reactions}
+🥲 (2) 
+
+[05/08/2024 22:32] iwildsniperi
+thats another 1 month judging
+
+
+[05/08/2024 22:32] iwildsniperi
+sorry for the judge
+me panicing due to fake end of audit made me submit a non sense 1 vuln from my notes and other slightly low reports quality🥲
+
+
+[05/08/2024 22:32] iwildsniperi
+thats a lesson to finish early
+
+
+[05/08/2024 22:58] iwildsniperi
+Did i turn crazy or some one replied and then deleted
+
+
+[05/08/2024 22:59] sin1st3r__
+ye someone replied then deleted. Great that he deleted what he sent lmao
+
+{Reactions}
+😂 (2) 
+
+[05/08/2024 22:59] iwildsniperi
+He embarrassed me?
+
+{Reactions}
+👎 
+
+[05/08/2024 22:59] iwildsniperi
+Gg🥲
+
+
+[05/09/2024 00:51] bronze_pickaxe
+Gg, this was a fun contest
+
+{Reactions}
+❤️ (2) 
+
+[05/09/2024 01:39] daniel526
+Awesome submitions
+
+
+[05/09/2024 03:56] iwildsniperi
+1k awesome ones?
+
+
+[05/09/2024 07:45] mylifechangefast.eth_70767
+Fr?? 
+
+Is it about the numbers of submittions?
+
+
+[05/09/2024 11:42] .ready_player_2
+Interesting to see how the new rules speed up the judging process....
+
+
+[05/11/2024 06:37] daniel526
+why are they judging Renzo this fast? 😂
+
+{Reactions}
+😂 (5) 
+
+[05/11/2024 07:29] 0xumarkhatab
+is not it great ?
+https://tenor.com/view/ratio-gif-25105620
+
+{Embed}
+https://tenor.com/view/ratio-gif-25105620
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/ratio-7D797.png
+
+
+[05/11/2024 12:09] iwildsniperi
+https://discord.com/channels/810916927919620096/1233459941474435102/1237859124423950357
+
+
+[05/11/2024 12:09] iwildsniperi
+What % done?
+
+{Reactions}
+👀 (7) 💯 (3) 
+
+[05/15/2024 13:06] 0xumarkhatab
+Guys wen ?
+
+{Reactions}
+👏 (4) 😂 (4) 
+
+[05/15/2024 16:39] iwildsniperi
+you are my brother😂
+
+{Reactions}
+😂 (2) 
+
+[05/15/2024 17:06] 0xumarkhatab
+😂
+
+
+[05/15/2024 17:08] bigsam0831
+I love your spirit man 🔥🔥 great vibes 🙌
+
+{Reactions}
+❤️ 🫡 
+
+[05/15/2024 17:48] 0xumarkhatab
+you've that cool backstage role sir , maybe you can tell us : )
+
+
+[05/15/2024 18:08] tigerfrake
+Let's give it another 1 week, lol
+
+
+[05/15/2024 18:09] 0xshaheen
+Sponsor is still reviewing all the HMs. I guess 30% done.....
+
+
+[05/15/2024 20:56] iwildsniperi
+so its judged but missing sponser i guess?
+
+
+[05/16/2024 04:33] 0xshaheen
+No its only validated. Judges review comes after sponsor review.
+
+{Reactions}
+🫡 (2) 
+
+[05/17/2024 11:36] _3doc_
+I wonder if this contest will get us all arrested - ODs with Meth are a serious thing :bluealert:
+
+{Reactions}
+😂 (7) 
+
+[05/17/2024 12:11] matin6517
+😂😂😂
+Submitters are high rather than submissions?
+
+{Reactions}
+😂 (4) 
+
+[05/17/2024 23:33] iwildsniperi
+What is this about?
+
+
+[05/18/2024 02:18] iwildsniperi
+how is it going my sirs SRs?
+
+{Reactions}
+🫡 (2) 
+
+[05/18/2024 13:44] 0xshaheen
+Judge have started judging as well
+
+
+[05/18/2024 13:59] iwildsniperi
+So judging and sponser reviews are going in parallel?
+
+
+[05/18/2024 14:03] 0xshaheen
+seems like, maybe sponsor review is completed. Anyway, judging is happening at a good speed 🙂
+
+
+[05/18/2024 14:04] iwildsniperi
+Thx so much sir for your response
+
+{Reactions}
+👍 (3) 
+
+[05/19/2024 10:21] iwildsniperi
+https://tenor.com/view/if-not-now-when-act-now-save-the-earth-bold-action-for-climate-care-gif-21161468
+
+{Embed}
+https://tenor.com/view/if-not-now-when-act-now-save-the-earth-bold-action-for-climate-care-gif-21161468
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/if-not-now-when-act-now-99A37.png
+
+{Reactions}
+😂 (9) 🤣 (7) 
+
+[05/20/2024 15:44] ilchovski
+https://tenor.com/view/if-not-us-then-who-teo-avatar-the-last-airbender-who-else-will-do-it-atla-gif-10219290437775839674
+
+{Embed}
+https://tenor.com/view/if-not-us-then-who-teo-avatar-the-last-airbender-who-else-will-do-it-atla-gif-10219290437775839674
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/if-not-us-then-who-teo-CA031.png
+
+{Reactions}
+😂 (2) 
+
+[05/20/2024 15:45] iwildsniperi
+Bruv
+I made a cult
+
+
+[05/21/2024 14:30] iwildsniperi
+any stuff new?
+
+{Reactions}
+👀 
+
+[05/21/2024 14:31] iwildsniperi
+i think results wont come before june like this
+cause there is still PJQA that will be ..........
+
+
+[05/21/2024 14:32] bill_hsu
+I still see them saying end of May in their channel
+
+{Reactions}
+🥲 (2) 
+
+[05/21/2024 14:51] iwildsniperi
+i know that too but seems unachievable
+
+
+[05/21/2024 23:56] iwildsniperi
+i think if so mitigation review will be total 4 days
+
+
+[05/21/2024 23:56] iwildsniperi
+if so then yes
+
+
+[05/22/2024 04:42] iwildsniperi
+https://tenor.com/view/wen-nft-twitter-wenn-when-gif-18078179288892762692
+
+{Embed}
+https://tenor.com/view/wen-nft-twitter-wenn-when-gif-18078179288892762692
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/wen-nft-57EA8.png
+
+
+[05/22/2024 05:19] bill_hsu
+In web3 we trust
+
+
+[05/22/2024 07:20] oxtenma
+Judging isn't completed yet.
+
+{Reactions}
+🥲 
+
+[05/24/2024 11:47] zigtur
+I don't have backstage either, how can you know the status of your issues?
+
+
+[05/24/2024 11:48] g01u
+i use my friend backstage @Zigtur
+
+{Reactions}
+👍 
+
+[05/24/2024 11:49] g01u
+is there any solution ?
+
+
+[05/24/2024 11:58] zigtur
+don't think so, I don't even know what is the status of my issues. Will see
+
+
+[05/24/2024 12:38] mylifechangefast.eth_70767
+Why don't you have a backstage role.. 
+
+U are a boss, is it that you don't participate in Code4rena contest like that?
+
+
+[05/24/2024 12:39] zigtur
+That's only my second one, only have 1 medium on C4 😂
+
+{Reactions}
+😂 
+
+[05/24/2024 12:40] mylifechangefast.eth_70767
+Hehe
+
+
+[05/24/2024 12:41] mylifechangefast.eth_70767
+No I can't believe... Zigur the immunefi conquerer😅
+
+{Reactions}
+😅 (2) 
+
+[05/25/2024 05:03] iwildsniperi
+ye that zigtur beast
+i was dreaming of wining this contest
+but now when i saw his message in the channel iam okey to get some cents
+
+
+[05/25/2024 05:47] tigerfrake
+Lmao
+
+
+[05/25/2024 05:48] iwildsniperi
+ye its what its
+
+
+[05/25/2024 06:24] bill_hsu
+Leave me a cent
+
+
+[05/25/2024 06:33] iwildsniperi
+nah its almost paying my badwidth
+
+
+[05/26/2024 02:40] iwildsniperi
+https://tenor.com/view/when-zac-sistas-s4e21-at-what-date-gif-26443318
+
+{Embed}
+https://tenor.com/view/when-zac-sistas-s4e21-at-what-date-gif-26443318
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/when-zac-A0C94.png
+
+
+[05/26/2024 11:58] olanre_waju
+If not by Friday, early next week. You should be busy submitting bugs on BOLD tho 💀
+
+{Reactions}
+😂 (2) 
+
+[05/26/2024 12:55] ladboy233
+https://tenor.com/view/if-not-now-when-act-now-save-the-earth-bold-action-for-climate-care-gif-21161468
+
+{Embed}
+https://tenor.com/view/if-not-now-when-act-now-save-the-earth-bold-action-for-climate-care-gif-21161468
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/if-not-now-when-act-now-99A37.png
+
+{Reactions}
+😂 (6) 
+
+[05/26/2024 13:03] tigerfrake
+From the way I see it, this is gonna take some more time. Let's give it another month guys. Lol
+
+
+[05/26/2024 23:12] iwildsniperi
+ye gg
+
+
+[05/27/2024 05:14] guhu95
+Can someone experienced in C4 please explain the mitigation review flow (I read [the docs](https://docs.code4rena.com/roles/sponsors/contest-process#how-code4rena-mitigation-reviews-work) ) ?
+1. Are the docs accurate?
+2. I understand it's a separately run contest, why is it included in the pot in some cases, but not others?
+3. When does it happen (says "after judging", but it's is a bit vague)? 
+4. I understand it's invitational - what are the eligibility criteria and how and when do the wardens get invited in practice? Does it require any previous status within C4 (like backstage), or is it only based on that specific contest?
+
+{Embed}
+https://docs.code4rena.com/roles/sponsors/contest-process
+Audit process | Code4rena
+
+
+[05/27/2024 05:35] _3doc_
+Hi,
+1. you can treat docs like you do in normal contests. Code has priority over docs unless the misalignment could be a bug; you can ask the sponsor to clarify like in regular contests
+2. My guess is that it’s included in the contest pot when the sponsor plans the mitigation review with the contest. It’s would not when the sponsor decides they want a mitigation review after the primary contest kicked off
+3. The mitigation RSVP I’ve seen were happening at most a couple days after the awards are announced 
+4. It’s a public RSVP so each will detail its own criteria, participants are generally selected based on their rank in the primary contest
+
+{Reactions}
+🙏 (2) 
+
+[05/27/2024 07:08] tigerfrake
+I've noticed that one of my submissions that I did an escalation for from the `validation repo` has a similar `issue ID` with another  issue that's been escalated by another warden.
+
+I hope the judges don't skip it thinking it's already been handled as the one from the other warden has been handled already.
+
+
+[05/27/2024 07:44] iwildsniperi
+can i DM you?
+
+
+[05/27/2024 07:45] tigerfrake
+Sure
+
+{Reactions}
+❤️ 
+
+[05/27/2024 08:40] mylifechangefast.eth_70767
+I'm tired
+
+
+[05/27/2024 08:40] mylifechangefast.eth_70767
+When result?
+
+
+[05/27/2024 09:57] oxtenma
+Judge is reviewing the escalations.
+
+
+[05/27/2024 11:17] mylifechangefast.eth_70767
+https://tenor.com/view/spongebob-scared-scary-sad-gif-26439591
+
+{Embed}
+https://tenor.com/view/spongebob-scared-scary-sad-gif-26439591
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/spongebob-scared-87B69.png
+
+
+[05/27/2024 11:21] 0xumarkhatab
+so only SRs can escalate ?
+
+
+[05/27/2024 11:21] 0xumarkhatab
+and not others ?
+
+
+[05/27/2024 11:22] 0xumarkhatab
+like everyone can on sherlock
+
+
+[05/27/2024 11:27] bill_hsu
+Not everyone can actually
+
+
+[05/27/2024 11:27] 0xumarkhatab
+oh gotcha , so it means whenever the results are announced , it will be permanent
+
+
+[05/27/2024 11:27] 0xumarkhatab
+and not like preliminary ones right ?
+
+
+[05/27/2024 11:31] bill_hsu
+Yeah I guess so, I think the difference is that on sherlock everyone can view the process
+
+{Reactions}
+👍 
+
+[05/27/2024 11:44] 0xumarkhatab
+wondering how long will that take
+
+
+[05/27/2024 12:02] whoismxuse
+judge is quite fast
+
+
+[05/27/2024 12:09] oxtenma
+1 week(to results) I think. Lots of escalations.
+
+
+[05/27/2024 12:32] 0xumarkhatab
+that's best then sir 😂
+
+{Reactions}
+✅ 
+
+[05/27/2024 12:32] 0xumarkhatab
+gotcha , thank you man 
+
+also any idea about loopfi?
+
+{Reactions}
+👍 
+
+[05/27/2024 12:34] oxtenma
+I am sorry, haven't checked that one.
+
+
+[05/27/2024 12:50] 0xumarkhatab
+no worries man
+
+
+[05/28/2024 08:16] iwildsniperi
+https://tenor.com/view/kyriostsahs-lonely-waiting-quarantine-life-gif-18073672
+
+{Embed}
+https://tenor.com/view/kyriostsahs-lonely-waiting-quarantine-life-gif-18073672
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/kyriostsahs-lonely-80C0F.png
+
+
+[05/28/2024 11:41] 0xdemonnn
+Renzo judging phase fast as lightning :chefskiss:
+
+{Reactions}
+🦾 (2) 
+
+[05/28/2024 12:18] 0xumarkhatab
+so we'll witness the results this week ?
+
+{Reactions}
+✅ (3) c4docs (2) 
+
+[05/28/2024 12:18] 0xdemonnn
+I think it's very possible
+
+{Reactions}
+🫡 (4) 
+
+[05/28/2024 17:42] m_rassska
+seems like, validators & judge combined did a great job! Thanks!
+
+
+[05/28/2024 17:57] iwildsniperi
+tomorrow?
+
+{Reactions}
+😂 
+
+[05/28/2024 18:11] daniel526
+Learned a lot from the submissions, next time I will do better.
+
+{Reactions}
+🔥 (3) 🥲 
+
+[05/28/2024 21:27] squilliamx
+did the results come out yet?
+
+
+[05/29/2024 14:56] oxtenma
+Hold on guys, it will take time I think.
+
+
+[05/29/2024 15:40] iwildsniperi
+https://tenor.com/view/winking-imyourhuckleberry-tombstone-wink-gif-6480294344838875657
+
+{Embed}
+https://tenor.com/view/winking-imyourhuckleberry-tombstone-wink-gif-6480294344838875657
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/winking-imyourhuckleberry-21500.png
+
+
+[05/29/2024 16:33] pronobis4
+every competition should have a deadline of 2 months, so maybe no one would ask, and faster results would be a nice surprise 😄
+
+{Reactions}
+😂 
+
+[05/29/2024 17:58] ilchovski
+I love your “when” gifs and questions on every audit I do, it’s so entertaining 😅
+
+{Reactions}
+😂 (3) 
+
+[05/29/2024 19:09] iwildsniperi
+https://tenor.com/view/hug-warm-hug-depressed-hug-gif-4585064738068342394
+
+{Embed}
+https://tenor.com/view/hug-warm-hug-depressed-hug-gif-4585064738068342394
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/hug-warm-hug-BDB77.png
+
+{Reactions}
+💜 (4) 
+
+[05/29/2024 20:08] smart_27
+when final result?
+
+{Reactions}
+🥲 (2) 
+
+[05/30/2024 09:49] iwildsniperi
+should be today, right?
+
+{Reactions}
+🙅‍♂️ (2) 😂 (7) yay (2) 
+
+[05/30/2024 12:45] oxtenma
+No😂
+
+
+[05/30/2024 13:10] olanre_waju
+It's far from ready 😆 escalations war 🏧
+
+{Reactions}
+😂 (2) 
+
+[05/30/2024 13:37] zigtur
+not having the SR role isn't that bad after all, then I can't see escalations war. Better being in denial 😂
+
+
+[05/30/2024 13:54] whoismxuse
+trust me u chillin, not having to witness the escalation war 😂 👍
+
+
+[05/30/2024 13:55] whoismxuse
+escalations seem to be over tho. results should be announced in the upcoming days
+
+
+[05/30/2024 14:26] iwildsniperi
+If any one escalated my only finding he will have bad consequences 😔
+
+{Reactions}
+😂 (7) 
+
+[05/30/2024 15:15] 0xbeastboy
+Dont forget my 3 unique highs👀
+
+{Reactions}
+✅ (2) 🥲 (3) 😂 
+
+[05/30/2024 15:43] iwildsniperi
+You trolling?
+
+{Reactions}
+😂 (3) 
+
+[05/30/2024 16:54] cu5t0mpeo
+I hope I have 1 valid report 🥲
+
+
+[05/30/2024 17:10] .ready_player_2
+https://tenor.com/view/pat-pat-gif-24957682
+
+{Embed}
+https://tenor.com/view/pat-pat-gif-24957682
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/pat-pat-D78CD.png
+
+{Reactions}
+🙏 (2) 
+
+[05/31/2024 05:33] squilliamx
+Are you guys escalating? Did the reports/judging come out? How can I check mine?
+
+
+[05/31/2024 06:32] 0xdemonnn
+result soon (?) 👀
+
+{Reactions}
+✅ (5) 👀 (4) 
+
+[05/31/2024 08:34] iwildsniperi
+you ask ?
+you are backstage sir, you answer
+
+
+[05/31/2024 09:02] 0xdemonnn
+its a question and answer in the same time lol
+
+{Reactions}
+❤️ 😂 (2) 
+
+[05/31/2024 09:08] iwildsniperi
+https://tenor.com/view/thumbs-up-double-thumbs-up-like-agreed-yup-gif-14284264219182206721
+
+{Embed}
+https://tenor.com/view/thumbs-up-double-thumbs-up-like-agreed-yup-gif-14284264219182206721
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/thumbs-up-double-thumbs-up-29111.png
+
+
+[05/31/2024 09:10] iwildsniperi
+https://tenor.com/view/jm-gif-18068790282636308332
+
+{Embed}
+https://tenor.com/view/jm-gif-18068790282636308332
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/jm-AD450.png
+
+{Reactions}
+🇮🇳 (3) 🔥 (3) 
+
+[05/31/2024 09:13] iwildsniperi
+no sir all good
+
+
+[06/03/2024 01:59] smart_27
+when final result?
+
+
+[06/03/2024 03:39] smart_27
+hey, my partner. How is your weekend? I am waiting for your reply
+
+
+[06/03/2024 06:57] oxtenma
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/image0-9491B.gif
+
+{Reactions}
+💯 (5) 
+
+[06/03/2024 07:28] bill_hsu
+today is the day
+
+{Reactions}
+✅ (3) 
+
+[06/03/2024 07:36] smart_27
+May i believe your reply?
+
+
+[06/03/2024 08:30] iwildsniperi
+Today iam sure
+
+
+[06/03/2024 08:31] iwildsniperi
+https://tenor.com/view/big-day-gif-26125130
+
+{Embed}
+https://tenor.com/view/big-day-gif-26125130
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/big-day-F0C31.png
+
+
+[06/03/2024 08:52] 0xumarkhatab
+did the judges say that ?
+
+
+[06/03/2024 08:53] iwildsniperi
+mitigational review is starting tomorrow
+
+{Reactions}
+🧠 (5) 
+
+[06/03/2024 09:01] ilchovski
+Lets hope it is not postponed for whatever reason
+
+{Reactions}
+❤️ 
+
+[06/03/2024 09:19] 0xumarkhatab
+i thought the same man
+
+{Reactions}
+🫡 
+
+[06/03/2024 12:57] 0xdemonnn
+https://tenor.com/view/dog-husky-soon-gif-7801078
+
+{Embed}
+https://tenor.com/view/dog-husky-soon-gif-7801078
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/dog-husky-A200D.png
+
+{Reactions}
+😂 
+
+[06/03/2024 12:58] ilchovski
+https://tenor.com/view/dead-my-honest-reaction-damn-skull-skeleton-gif-15885937969029652188
+
+{Embed}
+https://tenor.com/view/dead-my-honest-reaction-damn-skull-skeleton-gif-15885937969029652188
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/dead-my-honest-reaction-521AA.png
+
+
+[06/03/2024 13:29] iwildsniperi
+https://tenor.com/view/today-yay-gif-25615367
+
+{Embed}
+https://tenor.com/view/today-yay-gif-25615367
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/today-yay-B5CD4.png
+
+
+[06/03/2024 14:21] tigerfrake
+Lol
+
+
+[06/03/2024 14:23] 0xaadhi
+Its Coming! Logo is appeared😅
+
+
+[06/03/2024 14:52] bytes032
+https://tenor.com/bRbSD.gif
+
+{Embed}
+https://tenor.com/view/hhgf-gif-25031041
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/hhgf-3636D.png
+
+{Reactions}
+😂 (8) 🔥 (3) 
+
+[06/03/2024 14:53] iwildsniperi
+https://tenor.com/view/if-not-now-when-act-now-save-the-earth-bold-action-for-climate-care-gif-21161468
+
+{Embed}
+https://tenor.com/view/if-not-now-when-act-now-save-the-earth-bold-action-for-climate-care-gif-21161468
+Code4rena - ARCHIVE-Q2-2024 - renzo-apr30 [1233459941474435102].txt_Files/if-not-now-when-act-now-99A37.png
+
+
+[06/03/2024 15:38] sin1st3r__
+GG LessDupes
+
+{Reactions}
+eyeses (4) 
+
+[06/03/2024 15:40] biasedmerc
+You can see results on your profile now
+
+
+[06/03/2024 15:42] iwildsniperi
+i got 40 cents increased on the leaderboard but my profile shows nothing
+
+
+[06/03/2024 15:42] iwildsniperi
+is this grade F QA or what?
+
+{Reactions}
+☠️ (3) 💀 (3) 🤣 (3) 😂 (3) 
+
+[06/03/2024 15:43] biasedmerc
+I can see my H, M and QA on my profile
+
+
+[06/03/2024 15:48] pronobis4
+1.48$ 😄
+
+
+[06/03/2024 15:51] ilchovski
+2k$?
+
+{Reactions}
+✅ 
+
+[06/03/2024 15:56] sin1st3r__
+announcment when 👁️👁️
+
+{Reactions}
+👎 👍 (2) 
+
+[06/03/2024 16:01] cu5t0mpeo
+how many H and M?
+
+
+[06/03/2024 16:03] cloudellie
+Just getting the 🔥 winner graphics polished up
+
+{Reactions}
+🔥 (7) 
+
+[06/03/2024 16:04] sin1st3r__
+Badass
+
+
+[06/03/2024 16:11] gumgumzum
+Congrats everyone 🎉
+
+{Reactions}
+❤️ (5) 
+
+[06/03/2024 17:02] thebrittfactor
+🤑 🎉  Awards for **Renzo**:
+
+$23,953.09 USDC » LessDupes (@sin1st3r__, @EV_om and @3DOC) 
+$5,749.51 USDC » Fassi_Security (bronze_pickaxe and @mxuse) 
+$4,459.95 USDC » @Bauchibred 
+$2,809.45 USDC » @grearlake 
+$2,364.91 USDC » @fyamf 
+$2,329.43 USDC » @0xCiphky 
+$2,275.40 USDC » @0x73696d616f 
+$2,208.61 USDC » @oakcobalt 
+$2,061.32 USDC » @ilchovski 
+$1,979.09 USDC » @0xladboy | Sparkware 
+$1,423.75 USDC » @Sathish9098 
+$1,384.21 USDC » @zzykxx 
+$1,320.88 USDC » @ZanyBonzy 
+$1,187.66 USDC » @guhu95 
+$714.91 USDC » SBSecurity (@blckhv and @Slavcheww) 
+$699.87 USDC » @peanuts 
+$694.98 USDC » GoatedAudits (@0xjuan and @Spearmint) 
+$666.67 USDC » @Maroutis 
+$630.72 USDC » @KupiaSec 
+$630.72 USDC » @kennedy1030 
+$599.00 USDC » @blutorque 
+$599.00 USDC » RamenPeople (@kimchi and @wasabi) 
+$599.00 USDC » @bill 
+$529.39 USDC » @NentoR 
+$467.94 USDC » @Alex The Entreprenerd 
+$452.71 USDC » @jokr 
+$394.01 USDC » @tapir 
+$339.09 USDC » @mt030d 
+$337.24 USDC » @CodeCipher 
+$336.80 USDC » @0x007 
+$260.01 USDC » @eeshenggoh 
+$259.20 USDC » @crypticdefense 
+$257.76 USDC » @gumgumzum 
+$257.72 USDC » @gjaldon 
+$257.31 USDC » @Thunder 
+$156.78 USDC » @t0x1c 
+$114.84 USDC » @p0wd3r 
+$101.31 USDC » @0xabhay 
+$101.31 USDC » @d3e4 
+$100.91 USDC » @zhaojohnson
+
+
+[06/03/2024 17:03] thebrittfactor
+$31.76 USDC » @0xAadi 
+$20.89 USDC » TECHFUND (@piyushshukla599, @Gowtham_Ponnana, @alternato7368, @Engineer, @ravikiranweb3, @dev0cloo, @ikkun_1011 and @ikkun_1011) 
+$18.61 USDC » @OMEN 
+$18.24 USDC » @14si2o_Flint 
+$18.24 USDC » @inzinko 
+$18.20 USDC » @Bigsam 
+$18.20 USDC » CodeWasp (@kuprum, @slylandro_star and @audithare) 
+$18.20 USDC » @Hajime 
+$18.20 USDC » golu  
+$18.20 USDC » @oxwhite 
+$17.75 USDC » @baf 
+$17.04 USDC » @Zigtur 
+$16.27 USDC » @0xbug 
+$13.98 USDC » 0rpse  
+$13.97 USDC » @Tendency 
+$13.57 USDC » @adam-idarrha 
+$13.57 USDC » @araj 
+$13.57 USDC » @baz1ka 
+$13.57 USDC » @mussucal 
+$13.53 USDC » @0xhacksmithh 
+$13.53 USDC » @0xnightfall 
+$13.53 USDC » @aman 
+$13.53 USDC » @maxim371 
+$4.18 USDC » @rbserver 
+$3.15 USDC » @josephdara 
+$3.14 USDC » @cu5t0mpeo 
+$2.74 USDC » @xg 
+$2.70 USDC » @The Fabled 
+$2.70 USDC » @ak1 
+$2.70 USDC » @0xBeastBoy 
+$1.89 USDC » @HONEY 
+$1.89 USDC » @MSaptarshi 
+$1.89 USDC » @Ocean_Sky 
+$1.52 USDC » DanielArmstrong 
+$1.52 USDC » @hunter_w3b 
+$1.52 USDC » @Shaheen 
+$1.48 USDC » @carlitox477 
+$1.48 USDC » @twcctop 
+$1.48 USDC » @0xDemon 
+$1.48 USDC » @PNS 
+$1.48 USDC » @Rhaydden 
+$1.48 USDC » @Tigerfrake 
+$1.48 USDC » @atoko 
+$1.48 USDC » @btk 
+$1.48 USDC » @umar
+
+
+[06/03/2024 17:03] sin1st3r__
+LessDupes delivered. Couldn't have found better teammates @3DOC @EV_om. Congrats everyone!
+
+{Reactions}
+💜 (3) 🔥 (5) 
+
+[06/03/2024 17:03] thebrittfactor
+$0.45 USDC » @underdog 
+$0.41 USDC » @aslanbek 
+$0.41 USDC » @audinarey 
+$0.41 USDC » @WildSniper 
+$0.41 USDC » @Stonejiajia 
+$0.04 USDC » @Aamir 
+$0.04 USDC » @BiasedMerc 
+$0.04 USDC » @b0g0 
+$0.04 USDC » @carrotsmuggler 
+$0.04 USDC » @gesha17 
+$0.04 USDC » @kinda_very_good 
+$0.04 USDC » @lanrebayode77 
+$0.04 USDC » @m_Rassska 
+$0.04 USDC » @ADM 
+$0.04 USDC » @MaslarovK 
+$0.04 USDC » @Neon2835 
+
+🏁 Findings summary
+--------------------------------------
+High risk findings: 8 unique (170 total)
+Med risk findings: 14 unique (153 total)
+QA reports: 55 (Best: Sathish9098)
+Top Hunter: LessDupes
+Top Gatherer: LessDupes
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+
+[06/03/2024 17:07] .satyam_
+congrats @Sathish9098 ser 🥳
+
+{Reactions}
+❤️ (2) 
+
+[06/03/2024 17:12] oxtenma
+congrats @0xladboy | Sparkware  @Sathish9098
+
+{Reactions}
+❤️ (2) 
+
+[06/03/2024 17:13] smbv_1923
+congrats @Sathish9098 !
+
+{Reactions}
+❤️ 
+
+[06/03/2024 17:16] carlitox477
+Enough to buy me a coffee lol
+
+{Reactions}
+☕ 🫂 
+
+[06/03/2024 17:16] tigerfrake
+These results dey craze am:4739_Skeletor:
+
+
+[06/03/2024 17:17] 0xhacksmithh
+congrats @Sathish9098 🫡
+
+{Reactions}
+❤️ 
+
+[06/03/2024 17:44] 0xsorrynotsorry
+Almost half of the HM pot! 😱 
+Congrats `LessDupes` 🎉
+
+{Reactions}
+🙏 (6) 🤗 (5) 
+
+[06/03/2024 17:57] jolah1
+🎉
+
+
+[06/03/2024 18:23] t1moh
+Good job @3DOC @EV_om @sin1st3r__
+
+{Reactions}
+❤️ (3) 
+
+[06/03/2024 18:25] sin1st3r__
+thanks guys, really appreciate it 🫡 @T1MOH @sorryNotsorry
+
+{Reactions}
+🫡 hi5 
+
+[06/03/2024 18:32] t1moh
+Btw all 8 Highs is very solid result
+
+
+[06/03/2024 18:46] ilchovski
+Good job everybody
+
+
+[06/04/2024 06:25] infectedfuture
+@3DOC congrats 🎉 
+I'm ok to trade our rewards :hi5:  https://discord.com/channels/810916927919620096/1229440078280130634/1245653480476250152
+
+{Reactions}
+💜 
+
+[06/05/2024 00:11] guhu95
+any idea when findings repo will be public?
+
+
+[06/06/2024 19:06] smart_27
+hey. my partner, If you come here,  you know to me.
+
+{Reactions}
+😂 
+
+[06/07/2024 01:10] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted on Friday, 14 June 2024.  Please make sure to grab anything you might need before then.
+
+
+[06/10/2024 06:13] mgf15
+why there is no issues ? on https://github.com/code-423n4/2024-04-renzo-findings/issues/
+
+
+[06/14/2024 14:38] itsmetechjay
+ℹ️ Reminder: this channel will be deleted in 24 hours.
+
+
+==============================================================
+Exported 451 message(s)
+==============================================================
